@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "/calculatorpb";
+
+message SumRequest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+message SumResponse {
+  int32 result = 1;
+}
+message PNRequest {
+  int32 number = 1;
+}
+message PNResponse{
+  int32 result = 1;
+}
+message AVGRequest{
+  float number = 1;
+}
+message AVGResponse{
+  float result = 1;
+}
+message FMRequest{
+  int32 num = 1;
+}
+message FMResponse{
+  int32 max = 1;
+}
+message SquareRequest{
+  int32 num = 1;
+}
+message SquareResponse{
+  double result = 1;
+}
+service CalculatorService {
+  rpc Sum(SumRequest) returns (SumResponse) {}
+  rpc SumWithDeadLine(SumRequest) returns (SumResponse) {}
+  rpc PrimeNumber(PNRequest) returns (stream PNResponse) {}
+  rpc Average(stream AVGRequest) returns (AVGResponse) {}
+  rpc FindMax(stream FMRequest) returns (stream FMResponse) {}
+  rpc Square(SquareRequest) returns (SquareResponse) {}
+}
