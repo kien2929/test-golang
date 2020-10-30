@@ -1,1 +1,3 @@
-ssl
+ssl/server.*
+ssl/ca.*
+!ssl/SSLCmd.sh
