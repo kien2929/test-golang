@@ -125,7 +125,7 @@ func main(){
 		log.Fatal("err create listen %w",err)
 	}
 	certFile := "ssl/server.crt"
-	keyFile := "ssl/server.pem"
+	keyFile := "ssl/server.key"
 	creds, sslErr := credentials.NewServerTLSFromFile(certFile, keyFile)
 	if sslErr != nil {
 		log.Fatalf("create creds ssl err %v\n", sslErr)
